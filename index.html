@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Estudios Técnicos S.A.S</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0d0d0d;
+      color: white;
+    }
+
+    header {
+      background-color: #1d1d1d;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .titulo {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .logos img {
+      height: 60px;
+    }
+
+    .carrusel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      padding: 60px 20px;
+      position: relative;
+      background-color: #0d0d0d;
+    }
+
+    .slide {
+      display: none;
+      flex-direction: row;
+      max-width: 1200px;
+      width: 100%;
+      background-color: #1a1a1a;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+      animation: fade 0.6s ease-in-out;
+    }
+
+    .slide.active {
+      display: flex;
+    }
+
+    .slide img {
+      width: 60%;
+      object-fit: cover;
+    }
+
+    .texto {
+      width: 40%;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #00aaff;
+      font-size: 30px;
+      line-height: 1.5;
+    }
+
+    .descripcion {
+      font-size: 16px;
+      color: #ccc;
+      font-style: italic;
+      margin-top: 20px;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .flechas {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .flechas button {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: none;
+      padding: 15px 20px;
+      font-size: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      pointer-events: all;
+      transition: background 0.3s;
+    }
+
+    .flechas button:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .card-empresa {
+      padding: 80px 20px;
+      display: flex;
+      justify-content: center;
+      background-color: #0d0d0d;
+    }
+
+    .card {
+      background-color: #1a1a1a;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 800px;
+      box-shadow: 0 0 40px rgba(0, 170, 255, 0.2);
+      text-align: center;
+    }
+
+    .card h2 {
+      color: #00aaff;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .card p {
+      font-size: 20px;
+      color: #ddd;
+      line-height: 1.8;
+    }
+
+    /* Estilos para la sección de Proyectos Ejecutados */
+    .proyectos-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+    }
+
+    .proyecto-item {
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #111;
+      border: 1px solid #1d1d1d;
+    }
+
+    .proyecto-titulo {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .proyecto-titulo h2 {
+      color: #fff;
+      font-size: 28px;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .proyecto-item img {
+      max-width: 900px;
+      max-height: 900px;
+      filter: brightness(0.9);
+    }
+
+    @media (max-width: 1024px) {
+      .slide {
+        flex-direction: column;
+      }
+
+      .slide img {
+        width: 100%;
+        height: auto;
+      }
+
+      .texto {
+        width: 100%;
+        padding: 30px;
+        font-size: 22px;
+      }
+      
+      .proyectos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .proyectos-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="titulo">Estudios Técnicos S.A.S</div>
+    <div class="logos">
+      <img src="imagenprueba.png" alt="Logo ETC" />
+    </div>
+  </header>
+
+  <section class="carrusel">
+    <div class="flechas">
+      <button onclick="cambiarSlide(-1)">&#10094;</button>
+      <button onclick="cambiarSlide(1)">&#10095;</button>
+    </div>
+
+    <div class="slide active">
+      <img src="constr1.png" alt="Construcción 1">
+      <div class="texto">
+        Construcción de canalizaciones subterráneas en sector urbano con protección ambiental y manejo de aguas lluvias.
+        <div class="descripcion">— Supervisión técnica especializada para garantizar eficiencia y sostenibilidad.</div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="constr2.png" alt="Construcción 2">
+      <div class="texto">
+        Supervisión de obras civiles en concreto reforzado para sistemas de saneamiento básico e infraestructura vial.
+        <div class="descripcion">— Proyecto orientado a mejorar la calidad de vida urbana.</div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="constr3.png" alt="Construcción 3">
+      <div class="texto">
+        Desarrollo de proyectos estructurales con estándares internacionales y enfoque en sostenibilidad urbana.
+        <div class="descripcion">— Ingeniería de alto nivel adaptada a las necesidades de hoy.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card-empresa">
+    <div class="card">
+      <h2>Nuestra Trayectoria</h2>
+      <p>
+        ESTUDIOS TÉCNICOS Y CONSTRUCCIONES ha sido referente en ingeniería desde 1988, desarrollando interventorías, estudios y proyectos de saneamiento y tratamiento hídrico con altos estándares técnicos.
+      </p>
+    </div>
+  </section>  
+
+  <section style="padding: 15px 20px; background-color: #0d0d0d; display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
+    <div style="flex: 1 1 350px; max-width: 500px; background-color: #1a1a1a; padding: 30px; border-radius: 16px; box-shadow: 0 8px 30px rgba(0, 170, 255, 0.15); display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <h2 style="color: #00aaff; font-size: 26px; margin-bottom: 15px;">Misión</h2>
+      <p style="font-size: 17px; color: #ccc; line-height: 1.6;">
+        Ofrecemos soluciones sostenibles e innovadoras en ingeniería civil, sanitaria, ambiental e infraestructura vial. Nuestro enfoque está en superar expectativas, garantizando calidad, compromiso ambiental y excelencia.
+      </p>
+    </div>
+    <div style="flex: 1 1 350px; max-width: 500px; background-color: #1a1a1a; padding: 30px; border-radius: 16px; box-shadow: 0 8px 30px rgba(0, 170, 255, 0.15); display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <h2 style="color: #00aaff; font-size: 26px; margin-bottom: 15px;">Visión</h2>
+      <p style="font-size: 17px; color: #ccc; line-height: 1.6;">
+        Ser referentes nacionales en servicios de ingeniería, reconocidos por anticipar y superar las necesidades de nuestros clientes, con integridad, excelencia y compromiso hacia el futuro.
+      </p>
+    </div>
+  </section>
+  <section style="padding: 40px 0; background-color: #0d0d0d;">
+    <div class="proyectos-grid">
+      <div class="proyecto-titulo">
+        <h2>Proyectos<br>ejecutados<br>en:</h2>
+      </div>
+      <div class="proyecto-item">
+        <img src="acueducto.png" alt="Acueducto">
+      </div>
+      <div class="proyecto-item">
+        <img src="epc.png" alt="EPC">
+      </div>
+      <div class="proyecto-item">
+        <img src="secretaria-ambiente.png" alt="Secretaría de Ambiente">
+      </div>
+    </div>
+  </section>
+  <div style="text-align: center; padding: 40px 0; background-color: #0d0d0d;">
+    <a href="https://www.etcsasingenieria.com/construcci%C3%B3n" target="_blank" 
+       style="text-decoration: none; background-color: #00aaff; color: #fff; padding: 15px 30px; font-size: 18px; border-radius: 30px; box-shadow: 0 4px 20px rgba(0, 170, 255, 0.3); transition: background 0.3s;">
+      Conoce más sobre nuestras obras de construcción
+    </a>
+  </div>
+  
+    
+  <script>
+    let index = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function mostrarSlide(i) {
+      slides.forEach(slide => slide.classList.remove("active"));
+      index = (i + slides.length) % slides.length;
+      slides[index].classList.add("active");
+    }
+
+    function cambiarSlide(delta) {
+      mostrarSlide(index + delta);
+    }
+  </script>
+  <section style="padding: 60px 20px; background-color: #0d0d0d;">
+    <div style="max-width: 700px; margin: auto;">
+      <h2 style="text-align: center; color: #00aaff; margin-bottom: 40px; font-size: 28px;">Contáctanos</h2>
+      
+      <form style="display: grid; gap: 20px; color: #ccc;">
+        <div style="display: flex; gap: 20px;">
+          <div style="flex: 1;">
+            <label>Nombre</label>
+            <input type="text" placeholder="Nombre" style="width: 100%; padding: 12px; background-color: #111; border: 1px solid #444; border-radius: 8px; color: white;">
+          </div>
+          <div style="flex: 1;">
+            <label>Apellido</label>
+            <input type="text" placeholder="Apellido" style="width: 100%; padding: 12px; background-color: #111; border: 1px solid #444; border-radius: 8px; color: white;">
+          </div>
+        </div>
+  
+        <div>
+          <label>Empresa</label>
+          <input type="text" placeholder="Empresa" style="width: 100%; padding: 12px; background-color: #111; border: 1px solid #444; border-radius: 8px; color: white;">
+        </div>
+  
+        <div>
+          <label>Email *</label>
+          <input type="email" placeholder="tu@correo.com" required style="width: 100%; padding: 12px; background-color: #111; border: 1px solid #444; border-radius: 8px; color: white;">
+        </div>
+  
+        <div>
+          <button type="submit" style="background-color: #00aaff; color: white; padding: 14px 24px; border: none; border-radius: 10px; font-size: 16px; cursor: pointer; width: 100%; transition: background 0.3s;">
+            Enviar
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</body>
+</html>
